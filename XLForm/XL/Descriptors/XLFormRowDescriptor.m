@@ -485,8 +485,11 @@ CGFloat XLFormRowInitialHeight = -2;
 
 - (BOOL)valueIsEmpty
 {
+    NSCharacterSet *set = [NSCharacterSet whitespaceCharacterSet];
+    
     return self.value == nil || [self.value isKindOfClass:[NSNull class]] || ([self.value respondsToSelector:@selector(length)] && [self.value length]==0) ||
-    ([self.value respondsToSelector:@selector(count)] && [self.value count]==0);
+    ([self.value respondsToSelector:@selector(count)] && [self.value count]==0) ||
+    ([self.value respondsToSelector:@selector(stringByTrimmingCharactersInSet:)] && [[self.value stringByTrimmingCharactersInSet: set] length] == 0);
 }
 
 -(XLFormValidationStatus *)doValidation
