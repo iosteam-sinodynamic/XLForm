@@ -173,16 +173,6 @@
                 }
                 self.popoverController = [[UIPopoverController alloc] initWithContentViewController:selectorViewController];
                 self.popoverController.delegate = self;
-                
-                UIVisualEffect *blurEffect;
-                blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
-                
-                UIVisualEffectView *visualEffectView;
-                visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-                visualEffectView.frame = controller.view.frame;
-                
-                [controller.view addSubview:visualEffectView];
-                
                 if ([selectorViewController conformsToProtocol:@protocol(XLFormRowDescriptorPopoverViewController)]){
                     ((id<XLFormRowDescriptorPopoverViewController>)selectorViewController).popoverController = self.popoverController;
                 }
@@ -206,6 +196,16 @@
 			if ([self.rowDescriptor.rowType isEqualToString:XLFormRowDescriptorTypeSelectorPopover]) {
 				self.popoverController = [[UIPopoverController alloc] initWithContentViewController:optionsViewController];
                 self.popoverController.delegate = self;
+                
+                UIVisualEffect *blurEffect;
+                blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
+                
+                UIVisualEffectView *visualEffectView;
+                visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+                visualEffectView.frame = controller.view.frame;
+                
+                [controller.view addSubview:visualEffectView];
+                
                 optionsViewController.popoverController = self.popoverController;
                 if (self.detailTextLabel.window){
                     [self.popoverController presentPopoverFromRect:CGRectMake(0, 0, self.detailTextLabel.frame.size.width, self.detailTextLabel.frame.size.height) inView:self.detailTextLabel permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
