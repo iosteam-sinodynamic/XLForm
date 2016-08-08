@@ -117,6 +117,7 @@ NSString *const XLFormTextViewLengthPercentage = @"textViewLengthPercentage";
     [self.textView setEditable:!self.rowDescriptor.isDisabled];
     self.textView.textColor  = self.rowDescriptor.isDisabled ? [UIColor grayColor] : [UIColor blackColor];
     self.textLabel.text = ((self.rowDescriptor.required && self.rowDescriptor.title && self.rowDescriptor.sectionDescriptor.formDescriptor.addAsteriskToRequiredRowsTitle) ? [NSString stringWithFormat:@"%@*", self.rowDescriptor.title]: self.rowDescriptor.title);
+    self.textView.autocorrectionType = UITextAutocorrectionTypeNo;
 }
 
 +(CGFloat)formDescriptorCellHeightForRowDescriptor:(XLFormRowDescriptor *)rowDescriptor

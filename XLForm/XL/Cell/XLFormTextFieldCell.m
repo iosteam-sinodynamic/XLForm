@@ -92,7 +92,7 @@ NSString *const XLFormTextFieldLengthPercentage = @"textFieldLengthPercentage";
     self.textField.delegate = self;
     self.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     if ([self.rowDescriptor.rowType isEqualToString:XLFormRowDescriptorTypeText]){
-        self.textField.autocorrectionType = UITextAutocorrectionTypeDefault;
+        self.textField.autocorrectionType = UITextAutocorrectionTypeNo;
         self.textField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
     }
     else if ([self.rowDescriptor.rowType isEqualToString:XLFormRowDescriptorTypeName]){
