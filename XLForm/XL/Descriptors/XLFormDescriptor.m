@@ -299,7 +299,10 @@ NSString * const XLValidationStatusErrorKey = @"XLValidationStatusErrorKey";
         }
         else{
             for (XLFormRowDescriptor * row in section.formRows) {
-                if (row.tag.length > 0){
+                if (row.key.length > 0){
+                    [result setObject:(row.value ?: [NSNull null]) forKey:row.key];
+                }
+                else if (row.tag.length > 0){
                     [result setObject:(row.value ?: [NSNull null]) forKey:row.tag];
                 }
             }

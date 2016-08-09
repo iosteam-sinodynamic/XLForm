@@ -49,6 +49,7 @@ typedef void(^XLOnChangeBlock)(id __nullable oldValue,id __nullable newValue,XLF
 
 @property (nullable) id cellClass;
 @property (readwrite, nullable) NSString * tag;
+@property (readwrite, nullable) NSString * key;
 @property (readonly, nonnull) NSString * rowType;
 @property (nullable) NSString * title;
 @property (nonatomic, nullable) id value;
