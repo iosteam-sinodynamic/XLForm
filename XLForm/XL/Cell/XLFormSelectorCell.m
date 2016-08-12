@@ -172,6 +172,9 @@
                     [self.popoverController dismissPopoverAnimated:NO];
                 }
                 self.popoverController = [[UIPopoverController alloc] initWithContentViewController:selectorViewController];
+                CGSize size = self.popoverController.contentViewController.preferredContentSize;
+                size.width = 500;
+                self.popoverController.contentViewController.preferredContentSize = size;
                 self.popoverController.delegate = self;
                 if ([selectorViewController conformsToProtocol:@protocol(XLFormRowDescriptorPopoverViewController)]){
                     ((id<XLFormRowDescriptorPopoverViewController>)selectorViewController).popoverController = self.popoverController;
@@ -195,6 +198,9 @@
 
 			if ([self.rowDescriptor.rowType isEqualToString:XLFormRowDescriptorTypeSelectorPopover]) {
 				self.popoverController = [[UIPopoverController alloc] initWithContentViewController:optionsViewController];
+                CGSize size = self.popoverController.contentViewController.preferredContentSize;
+                size.width = 500;
+                self.popoverController.contentViewController.preferredContentSize = size;
                 self.popoverController.delegate = self;
                 
                 UIVisualEffect *blurEffect;
@@ -234,6 +240,9 @@
 
         if ([self.rowDescriptor.rowType isEqualToString:XLFormRowDescriptorTypeMultipleSelectorPopover]) {
             self.popoverController = [[UIPopoverController alloc] initWithContentViewController:optionsViewController];
+            CGSize size = self.popoverController.contentViewController.preferredContentSize;
+            size.width = 500;
+            self.popoverController.contentViewController.preferredContentSize = size;
             self.popoverController.delegate = self;
             
             UIVisualEffect *blurEffect;
